@@ -105,9 +105,33 @@ def test_func(x, l=None): #올바른 예시
 
 
 #22. 위치 인수의 튜플화
-'''여러개 인수를 튜플형태로 받는다.'''
+'''여러개 인수를 튜플형태로 받는다.
+*args에 튜플형태로 넣어줘도 된다.'''
 def say_something(*args):
     for arg in args:
         print(arg)
 
 say_something('Hi', 'Mike', 'Nance')
+
+def say_something(word, *args):
+    for arg in args:
+        print(arg)
+
+say_something('Hi', 'Mike', 'Nance')
+
+
+#23. 키워드 인수의 사전화
+def menu(**kwargs):
+    print(kwargs)
+    for k, v in kwargs.items():
+        print(k, v)
+menu(entree='beef', drink='coffee')
+
+d = {
+    'entree':'beef',
+    'drink':'ice coffee',
+    'dessert':'ice'
+}
+menu(**d)
+'''d의 딕셔너리가 그대로 kwargs에 딕셔너리 형태로 넘어간다'''
+
