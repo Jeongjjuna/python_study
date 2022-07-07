@@ -12,3 +12,6 @@ print(sys.argv)
 
 for i in sys.argv:
     print(i)
+
+
+#2. import as
