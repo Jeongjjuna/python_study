@@ -237,3 +237,90 @@ print(next(g))
 print("@@@@")
 print(next(g))
 print("@@@@")
+
+
+#29. 리스트 내포 표기
+t = (1, 2, 3, 4, 5)
+t2 = (5, 6, 7, 8, 9)
+r = [i for i in t if i % 2 == 0]
+print(r)
+
+'''리스트안에 for를 많이쓰는것은 별로 좋지 않다.'''
+r = [i*j for i in t for j in t2]
+print(r)
+
+
+#30. 사전 내포 표기
+w = ['mon', 'tue', 'wed']
+f = ['coffee', 'milk', 'water']
+
+d = {x: y for x, y in zip(w, f)}
+print(d)
+
+
+#31. 집합 내포 표기
+s = {i for i in range(10) if i % 2 == 0}
+print(s)
+
+
+#32. 제너레이터 내포 표기
+'''( ) 를 사용하면 튜플이 아닌 제너레이터가 생성된다@@@'''
+g = (i for i in range(10) if i % 2 == 0)
+print(type(g))
+print(next(g))
+print(next(g))
+
+'''튜플로 생성하고 싶을때'''
+g = tuple(i for i in range(10))
+print(type(g))
+
+
+#33. 이름공간과 스코프
+''' 지역변수, 전역변수 구별하기, __main__같은 전역변수들 확인하기'''
+animal = 'cat'
+
+def f():
+    animal = 'dog'
+    print(locals())
+
+f()
+print(globals())
+
+
+#34. 예외처리
+l = [1, 2, 3]
+i = 5
+try:
+    l[i]
+except:
+    print("Don't worry")
+
+
+try:
+    l[i]
+except IndexError as ex:
+    print("Don't worry: {}".format(ex))
+except NameError as ex:
+    print(ex)
+except Exception as ex: #그밖의 에러들
+    print('other:{}'.format(ex))
+else: #except에서 아무것도 에러가 걸리지 않았을 때 실행된다.
+    print('done')
+finally:
+    print('clean up') #항상 마지막에 실행됨
+
+
+#35. 독자예외 작성
+class UppercaseError(Exception):
+    pass
+
+def check():
+    words = ['APPLE', 'orange', 'banana']
+    for word in words:
+        if word.isupper():
+            raise UppercaseError(word)
+
+try:
+    check()
+except UppercaseError as ex:
+    print('This is my fault. Go next')
