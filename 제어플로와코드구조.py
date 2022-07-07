@@ -198,3 +198,19 @@ cal2 = circle_area_func(3.141592)
 print(cal1(10))
 print(cal2(10))
 
+
+#26. 데코레이터(어떤걸 싸준다? 어떤걸 포괄한다?느낌)
+'''나중에 다시하기(어려움)!!!!!!!'''
+
+
+#27. 람다
+l = ['mon', 'tue', 'wed', 'Thu', 'Fri', 'Sat', 'Sun']
+
+def change_word(words, func):
+    for word in words:
+        print(func(word))
+
+change_word(l, lambda word: word.capitalize())
+
+
+#28. 제너레이터
