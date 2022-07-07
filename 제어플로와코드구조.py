@@ -214,3 +214,26 @@ change_word(l, lambda word: word.capitalize())
 
 
 #28. 제너레이터
+'yield를 하나씩만 생성한다 -> yield한번 수행 후 다음 yield가 수행될 때까지 쉬는 느낌'
+l = ['Good morning', 'Good afternoon', 'Good night']
+for i in l:
+    print(i)
+
+#############################
+def greeting():
+    yield 'Good morning'
+    yield 'Good afternoon'
+    yield 'Good night'
+
+for g in greeting():
+    print(g)
+
+print('####################')
+
+g = greeting()
+print(next(g))
+print("@@@@")
+print(next(g))
+print("@@@@")
+print(next(g))
+print("@@@@")
