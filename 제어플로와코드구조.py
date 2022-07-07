@@ -132,6 +132,45 @@ d = {
     'drink':'ice coffee',
     'dessert':'ice'
 }
-menu(**d)
 '''d의 딕셔너리가 그대로 kwargs에 딕셔너리 형태로 넘어간다'''
+menu(**d)
+
+'''*args를 **kwargs보다 먼저쓰면 이렇게 동시에 여러개도 가능하다(순서애매하면 에러날수있음)'''
+def menu(food, *args, **kwargs):
+    print(food)
+    print(args)
+    print(kwargs)
+menu('banana', 'apple', 'orange', entree='beef', drink='coffee')
+
+
+#24. Docstrings
+'''함수 안에 큰따옴표3개로 묶어서 써야함'''
+def example_func(param1, param2):
+    '''Example function with types documented in the docstring.
+
+    Args:
+        parm1 (int): The first parameter.
+        parm2 (str): The second parameter.
+    
+    Returns:
+        bool: The return value. True for success, False otherwise.
+    '''
+    print(param1)
+    print(param2)
+    return True
+#함수 안에 주석처리된 부분을 볼 수 있음.
+print(example_func.__doc__)
+
+
+#25. 함수 내 함수
+''' plus함수가 outer함수 내에서만 쓰일때(특히 outer안에서 여러번쓰일 때) 함수 안에 정의한다.'''
+def outer(a, b):
+    def plus(c, d):
+        return c + d
+
+    r1 = plus(a, b)
+    r2 = plus(b, a)
+    print(r1 + r2)
+
+outer(1, 2)
 
