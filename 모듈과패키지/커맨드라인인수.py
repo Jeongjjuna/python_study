@@ -12,3 +12,5 @@ print(sys.argv)
 
 for i in sys.argv:
     print(i)
+
+#2. if __name__ == "__main__" 활용하기
