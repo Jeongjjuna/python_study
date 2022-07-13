@@ -142,4 +142,17 @@ TeslaCar = TeslaCar('Model S', passwd='123')
 TeslaCar.enable_auto_run = True
 print(TeslaCar.enable_auto_run)
 
-#------------------ 언더스코어2개(__)에 관한 것은 다음에 공부---------------------
+#------------------ 언더스코어2개(__)에 관한 것은 다음에 공부---------------------\
+
+
+
+
+#6. 클래스를 구조체로서 쓸 때 주의점
+''' 새로 이렇게 넣을 때 들어는 가지만 주의(쓰면 안 될 듯)'''
+class T:
+    pass
+
+t = T()
+t.name = 'Mike'
+t.age = 20
+print(t.name, t.age)
